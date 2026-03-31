@@ -1,0 +1,20 @@
+# Files ignored during Vercel build
+node_modules/
+.git/
+.git/
+dist/
+build/
+*.pyc
+__pycache__/
+.pytest_cache/
+.venv/
+venv/
+.env
+.env.local
+.vercel/
+.vercel_build_output/
+.vscode/
+.idea/
+*.log
+*.swp
+.DS_Store
