@@ -1,11 +1,4 @@
 {
   "buildCommand": "npm run build",
-  "framework": "vite",
-  "functions": {
-    "api/**/*.py": {
-      "runtime": "python3.9",
-      "memory": 1024,
-      "maxDuration": 60
-    }
-  }
+  "framework": "vite"
 }
