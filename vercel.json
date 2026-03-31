@@ -1,14 +1,11 @@
 {
-  "buildCommand": "python model_training.py && npm run build",
-  "devCommand": "npm run dev",
-  "installCommand": "pip install -r requirements.txt && npm install",
-  "framework": "other",
+  "buildCommand": "npm run build",
+  "framework": "vite",
   "functions": {
     "api/**/*.py": {
       "runtime": "python3.9",
       "memory": 1024,
       "maxDuration": 60
     }
-  },
-  "regions": ["iad1"]
+  }
 }

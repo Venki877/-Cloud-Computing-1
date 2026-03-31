@@ -56,26 +56,41 @@ vercel
 
 ### What Gets Deployed
 
-- **Frontend**: React/Vite app
-- **Backend**: Python Flask API with ML predictions
+- **Frontend**: React/Vite app (built and optimized)
+- **Backend**: Python Flask API with ML predictions (serverless functions)
 - **Model**: `saved_model.pkl` (pre-trained ML model)
 
 ### Build Process
 
 Vercel automatically:
-1. Installs Python dependencies from `requirements.txt`
-2. Installs Node.js dependencies from `package.json`
-3. Builds the frontend
-4. Sets up Python API routes
+1. Installs Node.js dependencies from `package.json`
+2. Builds the Vite React app to `dist/`
+3. Serves static files
+4. Routes `/api/*` requests to Python serverless functions
+5. Python dependencies installed automatically for API
+
+### Important: Pre-trained Model
+
+**Your ML model must be pre-trained locally and committed to Git:**
+
+```bash
+# Do this BEFORE deploying
+python model_training.py
+git add saved_model.pkl
+git commit -m "Add pre-trained model"
+git push
+```
+
+Vercel will NOT train the model during deployment (to avoid timeout). The training happens locally, and `saved_model.pkl` is deployed with your code.
 
 ### Environment Variables
 
 No additional environment variables needed for basic setup.
 
-Optional environment variables:
+Optional environment variables (set in Vercel Dashboard):
 ```
-MODEL_PATH=./saved_model.pkl
 FLASK_ENV=production
+DEBUG=false
 ```
 
 ## 📝 Project Structure for Vercel
